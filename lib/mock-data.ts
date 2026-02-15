@@ -310,17 +310,20 @@ export interface Announcement {
   content: string;
   author: string;
   date: string;
-  targetAudience: "All" | "Teachers" | "Students" | "Parents";
-  priority: "normal" | "important" | "urgent";
+  audience: "All" | "Teachers" | "Students" | "Parents";
+  priority: "normal" | "high" | "urgent" | "low";
+  pinned: boolean;
 }
 
 export const announcements: Announcement[] = [
-  { id: "a1", title: "Annual Sports Day", content: "We are excited to announce that the Annual Sports Day will be held on March 15, 2025. All students are encouraged to participate in various events including track and field, relay races, and team sports. Registration forms are available at the sports department.", author: "Robert Singh", date: "2025-02-01", targetAudience: "All", priority: "important" },
-  { id: "a2", title: "Parent-Teacher Meeting", content: "The quarterly parent-teacher meeting is scheduled for February 20, 2025. Parents are requested to attend between 9:00 AM and 1:00 PM. Individual time slots will be shared via email. Please confirm your attendance by February 15.", author: "Dr. Sarah Mitchell", date: "2025-02-05", targetAudience: "Parents", priority: "important" },
-  { id: "a3", title: "Science Fair 2025", content: "Calling all young scientists! The annual Science Fair will be held on April 5, 2025. Students from Class 6 to Class 12 can submit their projects. Themes this year include Renewable Energy, AI & Robotics, and Environmental Conservation.", author: "Michael Chen", date: "2025-02-08", targetAudience: "Students", priority: "normal" },
-  { id: "a4", title: "Staff Development Workshop", content: "A mandatory professional development workshop on 'Modern Teaching Methodologies' will be conducted on February 22, 2025. The workshop will be led by Dr. Amanda Foster from the National Education Board. All teaching staff must attend.", author: "Emily Rodriguez", date: "2025-02-10", targetAudience: "Teachers", priority: "urgent" },
-  { id: "a5", title: "Library New Arrivals", content: "The school library has added 50 new books across Science, Literature, and Technology sections. Students can explore the new collection starting February 12. Special reading hour sessions will be held every Wednesday.", author: "Lisa Nguyen", date: "2025-02-11", targetAudience: "All", priority: "normal" },
+  { id: "a1", title: "Annual Sports Day", content: "We are excited to announce that the Annual Sports Day will be held on March 15, 2025. All students are encouraged to participate in various events including track and field, relay races, and team sports. Registration forms are available at the sports department.", author: "Robert Singh", date: "2025-02-01", audience: "All", priority: "high", pinned: true },
+  { id: "a2", title: "Parent-Teacher Meeting", content: "The quarterly parent-teacher meeting is scheduled for February 20, 2025. Parents are requested to attend between 9:00 AM and 1:00 PM. Individual time slots will be shared via email. Please confirm your attendance by February 15.", author: "Dr. Sarah Mitchell", date: "2025-02-05", audience: "Parents", priority: "high", pinned: true },
+  { id: "a3", title: "Science Fair 2025", content: "Calling all young scientists! The annual Science Fair will be held on April 5, 2025. Students from Class 6 to Class 12 can submit their projects. Themes this year include Renewable Energy, AI & Robotics, and Environmental Conservation.", author: "Michael Chen", date: "2025-02-08", audience: "Students", priority: "normal", pinned: false },
+  { id: "a4", title: "Staff Development Workshop", content: "A mandatory professional development workshop on 'Modern Teaching Methodologies' will be conducted on February 22, 2025. The workshop will be led by Dr. Amanda Foster from the National Education Board. All teaching staff must attend.", author: "Emily Rodriguez", date: "2025-02-10", audience: "Teachers", priority: "urgent", pinned: false },
+  { id: "a5", title: "Library New Arrivals", content: "The school library has added 50 new books across Science, Literature, and Technology sections. Students can explore the new collection starting February 12. Special reading hour sessions will be held every Wednesday.", author: "Lisa Nguyen", date: "2025-02-11", audience: "All", priority: "low", pinned: false },
 ];
+
+export { announcements as mockAnnouncements };
 
 // ==================== DASHBOARD STATS ====================
 export const dashboardStats = {
